@@ -1,0 +1,5 @@
+import { useRef, useState } from 'react';
+import LoginForm from './components/LoginForm.jsx';
+import SubmittedCredentials from './components/SubmittedCredentials.jsx';
+
+export default function App(){const formRef=useRef(null);const [credentials,setCredentials]=useState(null);function submit(event){event.preventDefault();const values=new FormData(formRef.current);setCredentials({username:values.get('username'),password:values.get('password')})}return <main className="page"><header><b>Northstar <span>·</span></b><small>UNIT 4 / PRACTICAL 5</small></header><section className="card"><div className="art"><div className="sun">↗</div><div className="art-caption">YOUR SPACE<br/>AWAITS</div></div><div className="content"><small>GOOD TO SEE YOU</small><h1>Welcome<br/>back.</h1><p>Sign in to continue your session.</p><LoginForm formRef={formRef} onSubmit={submit}/>{credentials&&<SubmittedCredentials credentials={credentials}/>}<div className="method">Uncontrolled inputs · submitted with <code>FormData</code></div></div></section><footer>DEMONSTRATION FORM · Values are displayed locally for this practical.</footer></main>}

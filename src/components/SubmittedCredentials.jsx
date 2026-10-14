@@ -1,0 +1,1 @@
+export default function SubmittedCredentials({credentials}){return <section className="result" aria-live="polite"><b>FORM SUBMITTED</b><p><span>Username</span>{credentials.username}</p><p><span>Password</span>{credentials.password}</p></section>}
